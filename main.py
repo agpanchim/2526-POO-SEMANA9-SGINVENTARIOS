@@ -54,7 +54,7 @@ while True:
             print(" Error en los datos.")
 
     elif opcion == "4":
-        # 🔍 Buscar por ID
+        # Buscar por ID
         id_producto = input("Ingrese el ID: ")
         producto = inventario.buscar_por_id(id_producto)
         if producto:

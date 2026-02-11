@@ -20,7 +20,7 @@ class Inventario:
         for p in self.productos:
             if p.get_id() == id_producto:
                 self.productos.remove(p)
-                print("🗑️ Producto eliminado.")
+                print("Producto eliminado.")
                 return
         print(" Producto no encontrado.")
 
@@ -36,7 +36,7 @@ class Inventario:
                 return
         print(" Producto no encontrado.")
 
-    # 🔍 BUSCAR PRODUCTO POR ID (CAMBIO QUE PEDISTE)
+    # BUSCAR PRODUCTO POR ID (CAMBIO QUE PEDISTE)
     def buscar_por_id(self, id_producto):
         for p in self.productos:
             if p.get_id() == id_producto:

@@ -1,10 +1,17 @@
 # Clase Inventario
 # Gestiona la lista de productos
 
+import os
+
 class Inventario:
-    def __init__(self, archivo="servicios/inventario.txt"):
-        # Lista principal donde se guardan los productos
+    def __init__(self, archivo=None):
         self.productos = []
+
+        # Ruta segura al archivo inventario.txt
+        if archivo is None:
+            ruta_base = os.path.dirname(__file__)
+            archivo = os.path.join(ruta_base, "inventario.txt")
+
         # Nombre del archivo donde se almacenará el inventario
         self.archivo = archivo
         # Cargar datos automáticamente al iniciar

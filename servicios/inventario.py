@@ -2,7 +2,7 @@
 # Gestiona la lista de productos
 
 class Inventario:
-    def __init__(self, archivo="inventario.txt"):
+    def __init__(self, archivo="servicios/inventario.txt"):
         # Lista principal donde se guardan los productos
         self.productos = []
         # Nombre del archivo donde se almacenará el inventario

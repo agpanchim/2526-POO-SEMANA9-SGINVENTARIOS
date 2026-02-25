@@ -9,8 +9,9 @@ def mostrar_menu():
     print("2. Eliminar producto")
     print("3. Actualizar producto")
     print("4. Buscar producto por ID")
-    print("5. Listar inventario")
-    print("6. Salir")
+    print("5. Buscar producto por nombre")
+    print("6. Listar inventario")
+    print("7. Salir")
 
 # Crear inventario
 inventario = Inventario()
@@ -63,10 +64,23 @@ while True:
             print(" Producto no encontrado.")
 
     elif opcion == "5":
+        # Buscar producto por nombre
+        nombre = input("Ingrese el nombre del producto: ")
+
+        productos = inventario.buscar_por_nombre(nombre)
+
+        if productos:
+            print("\nProductos encontrados:")
+            for producto in productos:
+                print(producto)
+        else:
+            print("No se encontraron productos con ese nombre.")
+
+    elif opcion == "6":
         # Listar inventario
         inventario.listar_productos()
 
-    elif opcion == "6":
+    elif opcion == "7":
         print(" Saliendo del sistema...")
         break
 

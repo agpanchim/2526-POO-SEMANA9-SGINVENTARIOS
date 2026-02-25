@@ -1,46 +1,55 @@
-📦 Sistema Avanzado de Gestión de Inventario
-Descripción del programa
-Este sistema es una aplicación desarrollada en Python utilizando Programación Orientada a Objetos (POO), que permite gestionar el inventario de una tienda. El programa permite:
+# 📦 Sistema Avanzado de Gestión de Inventario
+# Descripción del programa
 
-Añadir productos
-Eliminar productos
-Actualizar productos
-Buscar productos por ID
-Buscar productos por nombre
-Mostrar todos los productos
+Este sistema es una aplicación desarrollada en Python utilizando Programación Orientada a Objetos (POO), que permite gestionar el inventario de una tienda.
+El programa permite:
+- Añadir productos
+- Eliminar productos
+- Actualizar productos
+- Buscar productos por ID
+- Buscar productos por nombre
+- Mostrar todos los productos
+
 Toda la información se guarda automáticamente en un archivo, lo que permite mantener los datos incluso después de cerrar el programa.
 
-Funcionamiento del programa
-El programa funciona mediante un menú interactivo en consola. Cuando el usuario ejecuta el archivo main.py, el sistema:
+## Funcionamiento del programa
+El programa funciona mediante un menú interactivo en consola.
+Cuando el usuario ejecuta el archivo `main.py`, el sistema:
+1. Carga automáticamente los productos desde el archivo `inventario.txt`
+2. Muestra un menú con opciones
+3. El usuario selecciona una opción
+4. El sistema ejecuta la operación correspondiente
+5. Los cambios se guardan automáticamente en el archivo
+Esto permite mantener un inventario persistente.
 
-Carga automáticamente los productos desde el archivo inventario.txt
-Muestra un menú con opciones
-El usuario selecciona una opción
-El sistema ejecuta la operación correspondiente
-Los cambios se guardan automáticamente en el archivo Esto permite mantener un inventario persistente.
-Estructura del sistema
+# Estructura del sistema
+
 El sistema está dividido en tres partes principales:
 
-1. Clase Producto (modelos/producto.py)
-Representa un producto individual. Atributos:
+### 1. Clase Producto (`modelos/producto.py`)
 
-id → identificador único
-nombre → nombre del producto
-cantidad → cantidad disponible
-precio → precio del producto
+Representa un producto individual.
+Atributos:
+- id → identificador único
+- nombre → nombre del producto
+- cantidad → cantidad disponible
+- precio → precio del producto
+
 Métodos:
+- get_id()
+- get_nombre()
+- get_cantidad()
+- get_precio()
+- set_cantidad()
+- set_precio()
 
-get_id()
-get_nombre()
-get_cantidad()
-get_precio()
-set_cantidad()
-set_precio()
 Esta clase permite crear y modificar productos.
 
-2. Clase Inventario (servicios/inventario.py)
-Gestiona todos los productos del inventario. Utiliza un diccionario para almacenar los productos:
+### 2. Clase Inventario (`servicios/inventario.py`)
+Gestiona todos los productos del inventario.
+Utiliza un diccionario para almacenar los productos:
 
+```python
 self.productos = {}
 Donde:
 clave = ID del producto

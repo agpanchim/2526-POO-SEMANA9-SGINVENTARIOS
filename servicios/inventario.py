@@ -67,12 +67,15 @@ class Inventario:
     # Añadir producto (ID no repetido)
     def agregar_producto(self, producto):
         # Verificar si el ID ya existe
-        if producto.id in self.productos:
+        if producto.get_id() in self.productos:
             print("⚠️ Error: Ya existe un producto con ese ID.")
             return
 
-        # Si no existe, agregar
-        self.productos[producto.id] = producto
+        # Agregar el producto al diccionario usando el ID como clave
+        self.productos[producto.get_id()] = producto
+        # Guardar los cambios en el archivo
+        self.guardar_en_archivo()
+        # Mensaje de confirmación
         print("✅ Producto agregado correctamente.")
 
 

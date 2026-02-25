@@ -3,15 +3,15 @@ from servicios.inventario import Inventario
 
 # Mostrar menú
 def mostrar_menu():
-    print("\n    SISTEMA DE GESTION DE INVENTARIO ")
+    print("\n  📦  SISTEMA DE GESTION DE INVENTARIO ")
     print( )
-    print("1. Añadir producto")
-    print("2. Eliminar producto")
-    print("3. Actualizar producto")
-    print("4. Buscar producto por ID")
-    print("5. Buscar producto por nombre")
-    print("6. Listar inventario")
-    print("7. Salir")
+    print("1. ➕ Añadir producto")
+    print("2. 🗑️ Eliminar producto")
+    print("3. ✏️ Actualizar producto")
+    print("4. 🔍 Buscar producto por ID")
+    print("5. 🔎 Buscar producto por nombre")
+    print("6. 📋 Listar inventario")
+    print("7. 🚪 Salir")
 
 # Crear inventario
 inventario = Inventario()
@@ -19,18 +19,24 @@ inventario = Inventario()
 # Programa principal
 while True:
     mostrar_menu()
-    opcion = input("Seleccione una opción: ")
+    opcion = input(" 👉 Seleccione una opción: ")
 
     if opcion == "1":
         # Añadir producto
         try:
             id_producto = input("ID: ")
-            nombre = input("Nombre: ")
-            cantidad = int(input("Cantidad: "))
-            precio = float(input("Precio: "))
 
-            producto = Producto(id_producto, nombre, cantidad, precio)
-            inventario.agregar_producto(producto)
+            # VALIDAR SI YA EXISTE
+            if inventario.buscar_por_id(id_producto):
+                print("⚠️ Ese ID ya existe.")
+            else:
+                nombre = input("Nombre: ")
+                cantidad = int(input("Cantidad: "))
+                precio = float(input("Precio: "))
+
+                producto = Producto(id_producto, nombre, cantidad, precio)
+                inventario.agregar_producto(producto)
+
         except ValueError:
             print(" Datos inválidos.")
 

@@ -5,6 +5,9 @@ import os
 
 class Inventario:
     def __init__(self, archivo=None):
+
+# Diccionario que almacena los productos usando el ID como clave
+# Esto permite búsquedas rápidas y eficientes
         self.productos = {}
 
         # Ruta segura al archivo inventario.txt
@@ -63,13 +66,14 @@ class Inventario:
 
     # Añadir producto (ID no repetido)
     def agregar_producto(self, producto):
-        if producto.get_id() in self.productos:
-            print(" Error: el ID ya existe.")
+        # Verificar si el ID ya existe
+        if producto.id in self.productos:
+            print("⚠️ Error: Ya existe un producto con ese ID.")
             return
 
-        self.productos[producto.get_id()] = producto
-        self.guardar_en_archivo()
-        print(" Producto agregado correctamente.")
+        # Si no existe, agregar
+        self.productos[producto.id] = producto
+        print("✅ Producto agregado correctamente.")
 
 
     # Eliminar producto por ID
